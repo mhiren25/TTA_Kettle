@@ -28,6 +28,8 @@ git commit -m "Add evaluator code to main branch"
 # Function to create participant structure
 create_structure() {
     ROOT="$1"
+
+    # Create directories
     mkdir -p "$ROOT/config"
     mkdir -p "$ROOT/templates/sample_files"
     mkdir -p "$ROOT/src/models" "$ROOT/src/agents" "$ROOT/src/graph" "$ROOT/src/utils"
@@ -35,13 +37,73 @@ create_structure() {
 
     # Root files
     touch "$ROOT/requirements.txt" "$ROOT/.env.example" "$ROOT/main.py"
+    
+    # README with starter content
     echo "# $ROOT" > "$ROOT/README.md"
+    echo "This is the starter structure for $ROOT." >> "$ROOT/README.md"
 
     # Config
     touch "$ROOT/config/__init__.py" "$ROOT/config/settings.py"
 
     # Templates
-    echo "## Requirement Specification Template" > "$ROOT/templates/requirement_spec_template.md"
+    cat <<EOT > "$ROOT/templates/requirement_spec_template.md"
+# Requirement Specification Template
+
+## Project Information
+- **Project Name**: [Project Name]
+- **Version**: [Version Number]
+- **Date**: [Date]
+- **Author**: [Author Name]
+
+## 1. Overview
+### 1.1 Purpose
+[Brief description of the feature/change purpose]
+
+### 1.2 Scope
+[What is included and excluded]
+
+## 2. Functional Requirements
+### 2.1 Feature Description
+[Detailed description of the feature]
+
+### 2.2 User Stories
+- **US-001**: As a [user type], I want [action] so that [benefit]
+- **US-002**: As a [user type], I want [action] so that [benefit]
+
+## 3. Technical Requirements
+### 3.1 System Components Affected
+- [Component 1]
+- [Component 2]
+
+### 3.2 Data Requirements
+- [Data structure/model changes]
+
+### 3.3 Integration Points
+- [External systems/APIs]
+
+## 4. Acceptance Criteria
+### 4.1 Functional Acceptance Criteria
+- **AC-001**: Given [precondition], When [action], Then [expected result]
+- **AC-002**: Given [precondition], When [action], Then [expected result]
+
+### 4.2 Non-Functional Acceptance Criteria
+- Performance: [criteria]
+- Security: [criteria]
+- Usability: [criteria]
+
+## 5. Constraints and Assumptions
+### 5.1 Constraints
+- [Technical constraints]
+- [Business constraints]
+
+### 5.2 Assumptions
+- [List assumptions]
+
+## 6. Success Metrics
+- [Metric 1]
+- [Metric 2]
+EOT
+
     touch "$ROOT/templates/sample_files/before_code.py"
     touch "$ROOT/templates/sample_files/after_code.py"
 
@@ -71,4 +133,4 @@ for participant in "${PARTICIPANTS[@]}"; do
     git commit -m "Add structure for participant $participant (evaluators excluded)"
 done
 
-echo "Branches for participants created. Each branch has isolated folder structure without evaluators."
+echo "Branches for participants created. Each branch has isolated folder structure with full requirement spec template."
