@@ -1,0 +1,30 @@
+npx create-react-app leaderboard-app
+cd leaderboard-app
+
+npm install papaparse lucide-react
+
+src/index.css 
+
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+npm install -D tailwindcss
+npx tailwindcss init
+
+tailwind.config.js
+
+module.exports = {
+  content: ["./src/**/*.{js,jsx,ts,tsx}"],
+  theme: { extend: {} },
+  plugins: [],
+}
+
+npm start
+
+name,score,level,wins
+Alice,15000,Gold,45
+Bob,12500,Silver,38
+Charlie,11000,Bronze,32
+Diana,9500,Silver,28
+Eve,8000,Bronze,25
