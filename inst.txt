@@ -1,0 +1,60 @@
+📦 Complete Setup Instructions
+Step 1: Create React App
+bashnpx create-react-app leaderboard-dashboard
+cd leaderboard-dashboard
+Step 2: Install Dependencies
+bashnpm install papaparse lucide-react
+npm install -D tailwindcss postcss autoprefixer
+Step 3: Initialize Tailwind
+bashnpx tailwindcss init -p
+Step 4: Configure Tailwind
+Edit tailwind.config.js:
+javascriptmodule.exports = {
+  content: [
+    "./src/**/*.{js,jsx,ts,tsx}",
+  ],
+  theme: {
+    extend: {
+      colors: {
+        'ubs-red': '#E60028',
+      },
+    },
+  },
+  plugins: [],
+}
+Step 5: Update index.css
+Replace the content of src/index.css:
+css@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+}
+Step 6: Update App.js
+Copy the React component from the artifact into src/App.js
+Step 7: Create Test CSV
+Create public/leaderboard.csv:
+csvname,score,level,wins
+Alice Johnson,15000,Gold,45
+Bob Smith,12500,Silver,38
+Charlie Davis,11000,Bronze,32
+Diana Wilson,9500,Silver,28
+Eve Martinez,8000,Bronze,25
+Frank Brown,7500,Bronze,22
+Grace Lee,7000,Silver,20
+Henry Taylor,6500,Bronze,18
+Ivy Anderson,6000,Bronze,16
+Jack Thompson,5500,Silver,15
+Step 8: Run the Application
+bashnpm start
+The app will open at http://localhost:3000 with proper Tailwind styling!
